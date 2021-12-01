@@ -2,11 +2,11 @@
 
 ## Group 7:
 
-Emily Park
-Emerson Noble
-Kaining Wan
-Ikmal Mahadi
-Nancy Yu
+*Emily Park
+*Emerson Noble
+*Kaining Wan
+*Ikmal Mahadi
+*Nancy Yu
 
 ### Brief Introduction
 
