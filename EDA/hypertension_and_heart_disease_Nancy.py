@@ -22,7 +22,7 @@ def bivariate(df):
     a = [dist_1[0],dist_2[0]]
     b = [dist_1[1],dist_2[1]]
     index = np.arange(2)
-    rects1 = plt.bar(index, a, bar_width, label='not stroke')
+    rects1 = plt.bar(index, a, bar_width, label='no stroke')
     rects2 = plt.bar(index + bar_width, b, bar_width, label='stroke')
     plt.xticks([bar_width/2,bar_width/2+1], ('not hypertension', 'hypertension'))
     plt.ylabel('percent', rotation=60)
@@ -38,7 +38,7 @@ def bivariate(df):
     a = [dist_1[0], dist_2[0]]
     b = [dist_1[1], dist_2[1]]
     index = np.arange(2)
-    rects1 = plt.bar(index, a, bar_width, label='not stroke')
+    rects1 = plt.bar(index, a, bar_width, label='no stroke')
     rects2 = plt.bar(index + bar_width, b, bar_width, label='stroke')
     plt.xticks([bar_width / 2, bar_width / 2 + 1], ('not heart_disease', 'heart_disease'))
     plt.ylabel('percent', rotation=60)
