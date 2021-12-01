@@ -6,10 +6,6 @@
   Kaining Wan  
   Ikmal Mahadi  
   Nancy Yu  
-  Diraksa Munajat  
-  Hoanan Peng  
-  Guanqing Li  
-  Onur Tepençelik  
 
 ### Brief Introduction
 
