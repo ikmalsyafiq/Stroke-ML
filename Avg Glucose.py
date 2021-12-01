@@ -11,7 +11,7 @@ data.drop('id', inplace=True, axis=1)
 # data.corr()
 sns.heatmap(data.corr(),cmap='Dark2_r',annot=True)
 plt.title("Correlation")
-#plt.show()
+plt.show()
 #Change other columns to numeric data
 Another_data = data.copy()
 Another_data['gender'] = np.where((Another_data['gender'] == "Female"), 1, 0)
@@ -23,7 +23,7 @@ Another_data['smoking_status'] = Another_data['smoking_status'].factorize()[0]
 plt.figure(figsize=(9,9))
 sns.heatmap(Another_data.corr(),annot=True, linewidths=0.1)
 plt.title("Expanded Correlation")
-#plt.show()
+plt.show()
 
 # Below is the Avg_glucose_level Analysis part
 fig, ax= plt.subplots(figsize=(9,7))
@@ -31,7 +31,7 @@ sns.histplot(x="avg_glucose_level",hue = "stroke", data=data, ax=ax)
 plt.xlabel("Avg_glucose_level")
 plt.ylabel("Count")
 #plt.legend(loc='upper right', title='Residence_type:', labels=['Urban','Rural'])
-#plt.show()
+plt.show()
 
 
 #add bmi status column (changing the bmi value to underweight,normal and overweight)
