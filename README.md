@@ -51,7 +51,7 @@ If you've already built up the environment containg all the required third-party
 
 The stroke dataset requires some pre-treatment. Column "id" is deleted since it's useless. For missing data in the bmi attribute and unknown data in the smoking-status attribute, we just omit them. 
 
-In order to get the correlation value for labeled attribute without numerical values. We define "0/1" values for the attribute with "Yes/No" properties. For example, we define "0" for "No" and "1" for "Yes" for "ever_married". And we define "0" for "Urban" and "1" for "Rural" for "Residence_type". And we calculate the corresponding correlation values according to these defined values.
+In order to get the correlation value for labeled attribute without numerical values. We define "0/1" values for the attribute with "Yes/No" properties. For example, we define "0" for "No" and "1" for "Yes" for "ever_married". We calculate the corresponding correlations according to these defined values.
 
 ## Plotting
 
