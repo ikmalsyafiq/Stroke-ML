@@ -1,76 +1,46 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 import pandas as pd 
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-# In[2]:
-
+'''
+This file contains code for EDA on gender, age and stroke columns of the
+dataset. Specifically, univariate, bivariate, and multivariate analyses for
+each feature and combination of features.
+'''
 
 # Load dataset
 data = pd.read_csv('./healthcare-dataset-stroke-data.csv',sep = ',',header = 0) 
 
-
-# In[3]:
-
-
 # See first 10 rows of dataframe
 data.head(10)
 
-
-# In[4]:
-
-
 # Make Dataframe copy with all columns I'm looking at
 df = data[['gender', 'age', 'stroke']].copy()
-df
-
-
-# In[5]:
-
 
 #Check for null values in this dataframe
 df.isnull().values.any()
 
 
-# # Univariate Analysis: Gender
-
-# In[6]:
+#--------------------------Univariate Analysis: Gender-------------------------
 
 
 # Look at unique values in gender column
 df.gender.value_counts()
 
-
-# In[7]:
-
-
 #Get rid of outlier
 df = df[df.gender != 'Other']
-
-
-# In[8]:
-
 
 # Check unique values in gender column again
 df.gender.value_counts()
 
-
-# In[9]:
-
-
-# Store counts for Female and Male in gender column in fem_ct and men_ct, respectively
+# Store counts for Female and Male in gender column in fem_ct and men_ct
 fem_ct = df.gender.value_counts().Female
 men_ct = df.gender.value_counts().Male
-
-
-# In[10]:
-
 
 # Bar chart of Female and Male counts in dataset
 x = ['Female', 'Male']
@@ -80,10 +50,6 @@ plt.bar(x, height = y, color = c)
 plt.xlabel('Gender')
 plt.ylabel('Count')
 plt.show()
-
-
-# In[11]:
-
 
 # Same bar chart as above but with Normalized Data
 fem_ct = df.gender.value_counts(normalize=True).Female
@@ -96,66 +62,34 @@ plt.xlabel('Gender')
 plt.ylabel('Count')
 plt.show()
 
-
-# In[12]:
-
-
 # Display counts for Female and Male
 print(fem_ct)
 print(men_ct)
 
-
-# In[13]:
-
-
 # Calculate the difference in counts of Female and Male
-2994-2115
-
-
-# In[14]:
-
-
+x = fem_ct - men_ct
+print(x)
 # 879 more Women included in dataset than men
 
 
-# # Univariate analysis: Age
-
-# In[15]:
-
+#-------------------Univariate analysis: Age-----------------------------------
 
 # Use describe() to see min value of age column
 df.describe()
-
-
-# In[16]:
-
 
 # Clean up age column, get rid of outliers
 for index, row in df.iterrows():
     if row['age'] < 1.00:
         df.drop(index, inplace=True)
-df
-
-
-# In[17]:
-
 
 # Turn age dtype to int
 df = df.astype({'age': 'int64'})
 df['age']
 
-
-# In[18]:
-
-
 # Prepare age data with value counts for plotting
 age_ct_df = pd.DataFrame(df['age'].value_counts())
 age_ct_df = age_ct_df.rename(columns={'age': 'count'})
 age_ct_df
-
-
-# In[19]:
-
 
 # Scatter plot of age vs. count
 plt.style.use('seaborn')
@@ -164,10 +98,7 @@ plt.xlabel('Age')
 plt.ylabel('Count')
 
 
-# # Bivariate analysis: Gender vs. Stroke
-
-# In[24]:
-
+#-------------------Bivariate analysis: Gender vs. Stroke----------------------
 
 # Bar chart of gender vs. stroke with normalized values for gender counts
 x,y = 'gender', 'stroke'
@@ -181,12 +112,9 @@ x,y = 'gender', 'stroke'
 plt.show()
 
 
-# # Bivariate analysis: Age vs. Stroke
+#------------------Bivariate analysis: Age vs. Stroke--------------------------
 
-# In[25]:
-
-
-# Scatterplot of age vs. count with color of point corresponding to stroke or no stroke
+# Scatterplot of age vs. count with color of pt meaning stroke or no stroke
 plt.style.use('seaborn')
 stroke = df.loc[df['stroke'] == 1]
 no_stroke = df.loc[df['stroke'] == 0]
@@ -205,10 +133,7 @@ plt.legend(['Stroke', 'No stroke'])
 plt.show()
 
 
-# # Mulitvariate analysis: Gender vs. Age vs. Stroke
-
-# In[26]:
-
+#------------Mulitvariate analysis: Gender vs. Age vs. Stroke------------------
 
 # Scatterplots of age vs. count and color of points representing gender
 fem_stroke = stroke.loc[stroke['gender'] == 'Female']
@@ -216,7 +141,6 @@ fem_no_stroke = no_stroke.loc[no_stroke['gender'] == 'Female']
 men_stroke = stroke.loc[stroke['gender'] == 'Male']
 men_no_stroke = no_stroke.loc[no_stroke['gender'] == 'Male']
 
-fem_stroke
 #Plot those w/ Stroke
 fem_stroke_ct = pd.DataFrame(fem_stroke['age'].value_counts())
 fem_stroke_ct = fem_stroke_ct.rename(columns={'age': 'count'})
@@ -240,10 +164,3 @@ plt.xlabel('Age w/o Stroke')
 plt.ylabel('Count')
 plt.legend(['Female', 'Male'])
 plt.show()
-
-
-# In[ ]:
-
-
-
-
