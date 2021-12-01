@@ -1,11 +1,11 @@
 # ECE143-Stroke Risk Analysis
 
 #### Group 12:
-  Emily Park
-  Emerson Noble
-  Kaining Wan
-  Ikmal Mahadi
-  Nancy Yu
+  Emily Park  
+  Emerson Noble  
+  Kaining Wan  
+  Ikmal Mahadi  
+  Nancy Yu  
   Diraksa Munajat  
   Hoanan Peng  
   Guanqing Li  
